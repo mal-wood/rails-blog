@@ -1,0 +1,8 @@
+<h1> Welcome to this amazing blog. </h1>
+<% @posts.each do |post| %>
+	<div class="post_wrapper">
+		<h2 class="title"><%= link_to post.title, post%></h2>
+			<h3> <%= post.created_at.strftime("%d %b. %Y") %> </h3>
+			<p class="body"><%= post.body %></p>
+	</div>
+<% end %>
