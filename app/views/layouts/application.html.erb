@@ -9,6 +9,12 @@
   </head>
 
   <body>
+  	 <div class="top_nav">
+  		<ul>
+  			<li><%= link_to "Home", :controller => "posts", :action => "index"%></li>
+        <li><%= link_to "New Post", :controller => "posts", :action => "new"%></li>
+      </ul>
+    </div>
     <%= yield %>
   </body>
 </html>
