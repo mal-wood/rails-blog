@@ -1,0 +1,14 @@
+<h1 class="title">
+	<%= @post.title %>
+</h1>
+
+<p class="date">
+	Posted <%= time_ago_in_words(@post.created_at) %> A go
+</p>
+
+<p class="body">
+	<%= @post.body %>
+</p>
+
+<%= link_to 'Edit', :controller => "posts", :action => "edit" %>
+<%= link_to 'Delete',  { action: :destroy, id: @post.id }, method: :delete, data: { confirm: 'Are you sure?' } %></td>
