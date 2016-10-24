@@ -25,9 +25,13 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 
-	private
-	def post_params
-		params.require(:post).permit(:title, :body)
+	def update
+		@post = Post.find(params[:id])
+		if @post.update(params[:post].permit(:title, :body))
+			redirect_to @post
+		else 
+			render 'edit'
+		end
 	end
 
 	def destroy
@@ -35,6 +39,11 @@ class PostsController < ApplicationController
 		@post.destroy
 
 		redirect_to action: "index"
+	end
+
+	private
+	def post_params
+		params.require(:post).permit(:title, :body)
 	end
 
 end 
