@@ -21,9 +21,20 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+	end
+
 	private
 	def post_params
 		params.require(:post).permit(:title, :body)
+	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+
+		redirect_to action: "index"
 	end
 
 end 
